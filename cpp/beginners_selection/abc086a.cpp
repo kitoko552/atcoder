@@ -8,4 +8,5 @@ int main() {
     cin >> a >> b;
     string s = (a*b % 2 == 0) ? "Even" : "Odd";
     cout << s << endl;
+    return 0;
 }

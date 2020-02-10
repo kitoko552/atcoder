@@ -6,7 +6,8 @@ using namespace std;
 
 int main() {
     int N, K;
-    cin >> N >> K;
+    cin >> N;
+    cin >> K;
 
     int p[N];
     for (int i = 0; i < N; i++) {

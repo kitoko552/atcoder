@@ -17,20 +17,14 @@ int main() {
         cin >> A[i] >> B[i];
     }
 
-    int maxa = 0;
-    rep(i,N) maxa = max(maxa, A[i]);
+    int dp[H+1];
+    rep(i,H+1) dp[i] = MAX_NUM;
 
-    int dp[H+maxa+1];
-    rep(i,H+maxa+1) dp[i] = MAX_NUM;
-
-    rep(i,H+maxa+1)rep(j,N) {
+    rep(i,H+1)rep(j,N) {
         if (A[j] >= i) dp[i] = min(dp[i], B[j]);
         else dp[i] = min(dp[i], dp[i - A[j]] + B[j]);
     }
 
-    int ans = MAX_NUM;
-    for (int i = H; i < H + maxa + 1; i++) ans = min(ans, dp[i]);
-
-    cout << ans << endl;    
+    cout << dp[H] << endl;
     return 0;
 }

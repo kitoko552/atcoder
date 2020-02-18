@@ -22,9 +22,6 @@ int main() {
   int length_s = s.length();
   int length_t = t.length();
 
-  // string dp[length_s+1][length_t+1];
-  // rep(i,length_s+1)rep(j,length_t+1) dp[i][j] = "";
-
   rep(i,length_s)rep(j,length_t) {
     if (s[i] == t[j]) {
       dp[i+1][j+1] = dp[i][j] + s[i]; 

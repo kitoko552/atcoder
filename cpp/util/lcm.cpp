@@ -9,7 +9,7 @@ using ll = long long;
 using P = pair<int, int>;
 const int INF = 1001001001;
 
-// 最小公倍数
+// aとbの最小公倍数を求める
 ll lcm(ll a, ll b) {
   ll x = a * b;
 

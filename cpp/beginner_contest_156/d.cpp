@@ -1,7 +1,9 @@
 #include<iostream>
+#include <algorithm>
 #include<cmath>
 #include<vector>
 #include<map>
+#include<queue>
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 #define rep1(i, n) for (int i = 1; i < (n); ++i)
 using namespace std;
@@ -61,21 +63,6 @@ struct mint {
   }
 };
 
-struct combination {
-  vector<mint> fact, ifact;
-  combination(int n):fact(n+1),ifact(n+1) {
-    assert(n < mod);
-    fact[0] = 1;
-    for (int i = 1; i <= n; ++i) fact[i] = fact[i-1]*i;
-    ifact[n] = fact[n].inv();
-    for (int i = n; i >= 1; --i) ifact[i-1] = ifact[i]*i;
-  }
-  mint operator()(int n, int k) {
-    if (k < 0 || k > n) return 0;
-    return fact[n]*ifact[k]*ifact[n-k];
-  }
-};
-
 // mod(1e9+7)の世界では、Yで割ることとYの(1e9+7-2)乗は等価
 mint combi(ll l, ll r) {
   mint lm = 1;
@@ -86,10 +73,12 @@ mint combi(ll l, ll r) {
 }
 
 int main() {
-  int N, K;
-  cin >> N >> K;
+  ll n, a, b;
+  cin >> n >> a >> b;
 
-  combination comb(1000000);
-  cout << comb(N, K).x << endl;
+  mint ans = 2;
+  ans = ans.pow(n)-1;
+  ans = ans - (combi(n, a) + combi(n, b));
+  cout << ans.x << endl;
   return 0;
 }

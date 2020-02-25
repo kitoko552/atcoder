@@ -1,7 +1,9 @@
 #include<iostream>
+#include<algorithm>
 #include<cmath>
 #include<vector>
 #include<map>
+#include<queue>
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 #define rep1(i, n) for (int i = 1; i < (n); ++i)
 using namespace std;
@@ -75,21 +77,14 @@ struct combination {
   }
 };
 
-// mod(1e9+7)の世界では、Yで割ることとYの(1e9+7-2)乗は等価
-mint combi(ll l, ll r) {
-  if (l <= 0 || r <= 0) return 1;
-  mint lm = 1;
-  for(ll i=l-r+1; i<=l; i++) lm *= i;
-  mint rm = 1;
-  for(ll i=1; i<=r; i++) rm *= i;
-  return lm * rm.pow(1e9+7-2);
-}
-
 int main() {
-  int N, K;
-  cin >> N >> K;
+  int n, k;
+  cin >> n >> k;
 
-  combination comb(1000000);
-  cout << comb(N, K).x << endl;
+  int m = min(n-1, k);
+  combination com(n);
+  mint all = 0;
+  rep(i,m+1) all += com(n,i) * com((n-i-1)+i,i);
+  cout << all.x << endl;
   return 0;
 }

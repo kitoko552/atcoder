@@ -12,12 +12,17 @@ using P = pair<int, int>;
 const int INF = 1001001001;
 
 int main() {
-  int A1, A2, A3;
-  cin >> A1 >> A2 >> A3;
+  string S;
+  cin >> S;
 
-  string ans;
-  if (A1+A2+A3 >= 22) ans = "bust";
-  else ans = "win";
-  cout << ans << endl;
+  string r = S;
+  reverse(r.begin(), r.end());
+  int ans = 0;
+  rep(i,S.size()) {
+    if (S[i] != r[i]) {
+      ans++;
+    }
+  }
+  cout << ans/2 << endl;
   return 0;
 }

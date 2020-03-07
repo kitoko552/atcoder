@@ -16,16 +16,20 @@ int main() {
   cin >> A >> B;
 
   vector<int> av;
-  int a = 100*A/8;
-  while(a*8/100 == A) {
-    av.push_back(a);
+  int a = 1;
+  int ax = a*8/100;
+  while(ax <= A) {
+    if (ax == A) av.push_back(a);
     a++;
+    ax = a*8/100;
   }
   vector<int> bv;
-  int b = 100*B/10;
-  while(b*10/100 == B) {
-    bv.push_back(b);
+  int b = 1;
+  int bx = b*10/100;
+  while(bx <= B) {
+    if (bx == B) bv.push_back(b);
     b++;
+    bx = b*10/100;
   }
   int ans = INF;
   for (int a : av) {

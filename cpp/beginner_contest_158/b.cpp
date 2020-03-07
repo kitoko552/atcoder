@@ -20,8 +20,9 @@ int main() {
     return 0;
   }
   ll sum = A+B;
-  ll x = (N / sum) * A;
-  int a = N % sum;
+  ll n = N / sum;
+  ll x = n * A;
+  ll a = N % sum;
   if (a >= A) x += A;
   else x += a;
   cout << x << endl;

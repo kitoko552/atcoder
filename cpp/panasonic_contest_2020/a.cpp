@@ -11,14 +11,12 @@ using ll = long long;
 using P = pair<int, int>;
 const int INF = 1001001001;
 
-int main() {
-  char S[3];
-  cin >> S;
+int list[32] = {1, 1, 1, 2, 1, 2, 1, 5, 2, 2, 1, 5, 1, 2, 1, 14, 1, 5, 1, 5, 2, 2, 1, 15, 2, 2, 5, 4, 1, 4, 1, 51};
 
-  char c = S[0];
-  string ans;
-  if (c == S[1] && c == S[2]) ans = "No";
-  else ans = "Yes";
-  cout << ans << endl;
+int main() {
+  int K;
+  cin >> K;
+
+  cout << list[K-1] << endl;
   return 0;
 }

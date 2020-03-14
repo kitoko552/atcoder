@@ -75,6 +75,16 @@ struct combination {
   }
 };
 
+// ll factorial(ll n) {
+//   ll x = 1;
+//   for (ll i = 1; i <= n; i++) x *= i;
+//   return x;
+// }
+
+// ll combi(ll l, ll r) {
+//   return factorial(l) / (factorial(l-r) * factorial(r));
+// }
+
 // mod(1e9+7)の世界では、Yで割ることとYの(1e9+7-2)乗は等価
 mint combi(ll l, ll r) {
   if (l <= 0 || r <= 0) return 1;

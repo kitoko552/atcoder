@@ -12,11 +12,24 @@ using P = pair<int, int>;
 const int INF = 1001001001;
 
 int main() {
-  int N, M;
-  cin >> N >> M;
+  int K, N;
+  cin >> K >> N;
+  int A[N];
+  int d[N-1];
+  int md = 0;
+  rep(i,N) {
+    cin >> A[i];
+    if(i > 0) {
+      d[i-1] = A[i] - A[i-1];
+      md = max(md, d[i-1]);
+      if (i == N-1) {
+        d[i] = K + A[0] - A[i];
+        md = max(md, d[i]);
+      }
+    }
+  }
 
-  int ans = N*(N-1)/2 + M*(M-1)/2;
-  cout<< ans << endl;
+  cout<< K-md << endl;
   return 0;
 }
 

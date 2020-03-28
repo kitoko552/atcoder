@@ -12,11 +12,11 @@ using P = pair<int, int>;
 const int INF = 1001001001;
 
 int main() {
-  int N, M;
-  cin >> N >> M;
+  string S;
+  cin >> S;
 
-  int ans = N*(N-1)/2 + M*(M-1)/2;
-  cout<< ans << endl;
+  if (S[2] == S[3] && S[4] == S[5]) cout<< "Yes" << endl;
+  else cout<< "No" << endl;  
   return 0;
 }
 

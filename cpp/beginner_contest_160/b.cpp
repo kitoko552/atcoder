@@ -12,10 +12,16 @@ using P = pair<int, int>;
 const int INF = 1001001001;
 
 int main() {
-  int N, M;
-  cin >> N >> M;
+  ll X;
+  cin >> X;
 
-  int ans = N*(N-1)/2 + M*(M-1)/2;
+  ll ans = 0;
+  ll a = X / 500;
+  X -= 500*a;
+  ans += 1000*a;
+  ll b = X / 5;
+  X -= 5*b;
+  ans += 5*b;
   cout<< ans << endl;
   return 0;
 }

@@ -23,9 +23,12 @@ struct Sieve {
   Sieve(int n=1):n(n), f(n+1) {
     f[0] = f[1] = -1; // 0と1は素数ではないので例外的に-1を入れる
     for (ll i = 2; i <= n; ++i) {
+      // 値がすでにある => ふるい落とし済みの場合はcontinue
       if (f[i]) continue;
       primes.push_back(i);
       f[i] = i;
+
+      // iの倍数をふるい落す
       for (ll j = i*i; j <= n; j += i) {
         if (!f[j]) f[j] = i;
       }
